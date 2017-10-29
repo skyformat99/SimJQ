@@ -1,5 +1,5 @@
 # SimJQ
-SimJQ全称Simple JQuery，支持类似Jquery语法的常用DOM操作和网络请求功能。
+SimJQ全称Simple JQuery，支持类似JQuery语法的常用DOM操作和网络请求功能。它不到4K大小，适合应用于存储空间及其有限的场景。
 
 项目主页[https://gitee.com/Leytton/SimJQ/](http://https://gitee.com/Leytton/SimJQ/)
 
