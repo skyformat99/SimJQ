@@ -293,7 +293,7 @@ function test1() {
 		       alert(JSON.stringify(data));
 		    },
 		    error:function(data,xhr){
-		        console.log(data);
+		    	alert(data);
 		    }
 		});
 	}
