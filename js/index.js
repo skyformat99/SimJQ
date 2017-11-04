@@ -10,7 +10,7 @@ function test1() {
 	}
 
 	function test3() {
-		$('#test3').html('<a href="http://blog.csdn.net/leytton" target="_blank"><img src="http://avatar.csdn.net/8/0/6/1_leytton.jpg" />图文超链接</a>');
+		$('#test3').html('<a href="http://blog.csdn.net/leytton" target="_blank"><img src="img/sa.jpg" />图文超链接</a>');
 		alert($('#test3').html());
 	}
 
@@ -72,17 +72,17 @@ function test1() {
 	}
 	
 	function test13() {
-		$('.test13').html('<a href="http://blog.csdn.net/leytton" target="_blank"><img src="http://avatar.csdn.net/8/0/6/1_leytton.jpg" />图文超链接</a>');
+		$('.test13').html('<a href="http://blog.csdn.net/leytton" target="_blank"><img src="img/sa.jpg" />图文超链接</a>');
 		alert($('.test13').html());
 	}
 	
 	function test14() {
-		$('.test14').html('<a href="http://blog.csdn.net/leytton" target="_blank"><img src="http://avatar.csdn.net/8/0/6/1_leytton.jpg" />图文超链接</a>',1);
+		$('.test14').html('<a href="http://blog.csdn.net/leytton" target="_blank"><img src="img/sa.jpg" />图文超链接</a>',1);
 		alert($('.test14').html(null,1));
 	}
 	
 	function test15() {
-		$('.test15').htmlAll('<a href="http://blog.csdn.net/leytton" target="_blank"><img src="http://avatar.csdn.net/8/0/6/1_leytton.jpg" />图文超链接</a>');
+		$('.test15').htmlAll('<a href="http://blog.csdn.net/leytton" target="_blank"><img src="img/sa.jpg" />图文超链接</a>');
 		var	str='';
 		str_list=$('.test15').htmlAll();
 		for(var i=0;i<str_list.length;i++){
