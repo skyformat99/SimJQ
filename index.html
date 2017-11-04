@@ -1,655 +1,725 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<title>SimJQ——4K不到的嵌入式js</title>
+		<title>SimJQ</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
 		<script type="text/javascript" src="simJQ-1.3.min.js"></script>
-		<script type="text/javascript" src="js/index.js" ></script>
+		<script type="text/javascript" src="js/index.js"></script>
 	</head>
+
 	<body>
-		eg1:文本修改/获取<br/>
-		<div>
-			<span id="test1">test1,SimJq~</span>
-			<input type="button" value="修改/获取" onclick="test1();" />
-			<pre>
-				代码:
-				$('#test1').text('Hello,I\'m Leytton~');
-				alert($('#test1').text());
-			</pre>
-		</div><hr/>
-		eg2:属性修改/获取<br/>
-		<div>
-			<span id="test2">test2,SimJq~</span>
-			<input type="button" value="修改/获取" onclick="test2();" />
-			<pre>
-				代码:
-				$('#test2').attr('my_name', '不亦');
-				alert($('#test2').attr('my_name'));
-			</pre>
-		</div><hr/>
-		eg3:Html修改/获取<br/>
-		<div>
-			<span id="test3">test3,SimJq~</span>
-			<input type="button" value="Html修改/获取" onclick="test3();" />
-			<pre>
-				代码:
-				$('#test3').html('&lt;a href="http://blog.csdn.net/leytton" target="_blank">&lt;img src="img/sa.jpg" />&lt;/a>');
-				alert($('#test3').html());
-			</pre>
-		</div><hr/>
-		eg4:隐藏/显示<br/>
-		<div>
-			<span id="test4" show="1">test4,SimJq~</span>
-			<input type="button" value="隐藏/显示" onclick="test4();" />
-			<pre>
-				代码:
-				if('1' == $('#test4').attr('show')) {
-					$('#test4').hide();
-					$('#test4').attr('show', '0');
-				} else {
-					$('#test4').show();
-					$('#test4').attr('show', '1');
-				}
-			</pre>
-		</div><hr/>
-		eg5:获取输入值<br/>
-		<div>
-			<input id="test5" type="text" />
-			<input type="button" value="获取输入值" onclick="test5();" />
-			<pre>
-				代码:
-				alert($('#test5').val());
-			</pre>
-		</div><hr/>
-		eg6:设置输入值<br/>
-		<div>
-			<input id="test6" type="text" />
-			<input type="button" value="设置输入值" onclick="test6();" />
-			<pre>
-				代码:
-				$('#test6').val('Hello,SimJQ~');
-			</pre>
-		</div><hr/>
-		eg7:多选择器默认修改/获取第1个文本<br/>
-		<div>
-			<span class="test7">test7,SimJq1~</span><br/>
-			<span class="test7">test7,SimJq2~</span><br/>
-			<span class="test7">test7,SimJq3~</span>
-			<input type="button" value="修改/获取文本" onclick="test7();" />
-			<pre>
-				代码:
-				$('.test7').text('Hi,SimJQ~');
-				alert($('.test7').text());
-			</pre>
-		</div><hr/>
-		eg8:多选择器修改/获取第i个文本<br/>
-		<div>
-			<span class="test8">test8,SimJq1~</span><br/>
-			<span class="test8">test8,SimJq2~</span><br/>
-			<span class="test8">test8,SimJq3~</span>
-			<input type="button" value="修改/获取文本" onclick="test8();" />
-			<pre>
-				代码:
-				$('.test8').text('Hi,SimJQ~',1);
-				alert($('.test8').text(null,1));
-			</pre>
-		</div><hr/>
-		eg9:多选择器修改/获取所有文本<br/>
-		<div>
-			<span class="test9">test9,SimJq1~</span><br/>
-			<span class="test9">test9,SimJq2~</span><br/>
-			<span class="test9">test9,SimJq3~</span>
-			<input type="button" value="修改/获取所有文本" onclick="test9();" />
-			<pre>
-				代码:
-				$('.test9').textAll('Hi,SimJQ~');
-				var	str='';
-				str_list=$('.test9').textAll();
-				for(var i=0;i&lt;str_list.length;i++){
-					str+=(i+':'+str_list[i]+'\n');
-				}
-				alert('length:'+str_list.length+'\n'+str);
-			</pre>
-		</div><hr/>
-		eg10:多选择器默认修改/获取第1个属性<br/>
-		<div>
-			<span class="test10">test10,SimJq1~</span><br/>
-			<span class="test10">test10,SimJq2~</span><br/>
-			<span class="test10">test10,SimJq3~</span>
-			<input type="button" value="修改/获取属性" onclick="test10();" />
-			<pre>
-				代码:
-				$('.test10').attr('my_name', '不亦');
-				alert($('.test10').attr('my_name'));
-			</pre>
-		</div><hr/>
-		eg11:多选择器修改/获取第i个属性<br/>
-		<div>
-			<span class="test11">test11,SimJq1~</span><br/>
-			<span class="test11">test11,SimJq2~</span><br/>
-			<span class="test11">test11,SimJq3~</span>
-			<input type="button" value="修改/获取属性" onclick="test11();" />
-			<pre>
-				代码:
-				$('.test11').attr('my_name', '不亦',1);
-				alert($('.test11').attr('my_name',null,1));
-			</pre>
-		</div><hr/>
-		eg12:多选择器修改/获取所有属性<br/>
-		<div>
-			<span class="test12">test12,SimJq1~</span><br/>
-			<span class="test12">test12,SimJq2~</span><br/>
-			<span class="test12">test12,SimJq3~</span>
-			<input type="button" value="修改/获取所有属性" onclick="test12();" />
-			<pre>
-				代码:
-				$('.test12').attrAll('my_name', '不亦');
-				var	str='';
-				str_list=$('.test12').attrAll('my_name');
-				for(var i=0;i&lt;str_list.length;i++){
-					str+=(i+':'+str_list[i]+'\n');
-				}
-				alert('length:'+str_list.length+'\n'+str);
-			</pre>
-		</div><hr/>
-		eg13:多选择器默认修改/获取第1个Html<br/>
-		<div>
-			<span class="test13">test13,SimJq1~</span><br/>
-			<span class="test13">test13,SimJq2~</span><br/>
-			<span class="test13">test13,SimJq3~</span>
-			<input type="button" value="修改/获取Html" onclick="test13();" />
-			<pre>
-				代码:
-				$('.test13').html('&lt;a href="http://blog.csdn.net/leytton" target="_blank">&lt;img src="img/sa.jpg" />&lt;/a>');
-				alert($('.test13').html());
-			</pre>
-		</div><hr/>
-		eg14:多选择器修改/获取第i个Html<br/>
-		<div>
-			<span class="test14">test13,SimJq1~</span><br/>
-			<span class="test14">test8,SimJq2~</span><br/>
-			<span class="test14">test8,SimJq3~</span>
-			<input type="button" value="修改/获取Html" onclick="test14();" />
-			<pre>
-				代码:
-				$('.test14').html('&lt;a href="http://blog.csdn.net/leytton" target="_blank">&lt;img src="img/sa.jpg" />&lt;/a>',1);
-				alert($('.test14').html());
-			</pre>
-		</div><hr/>
-		eg15:多选择器修改/获取所有Html<br/>
-		<div>
-			<span class="test15">test15,SimJq1~</span><br/>
-			<span class="test15">test15,SimJq2~</span><br/>
-			<span class="test15">test15,SimJq3~</span>
-			<input type="button" value="修改/获取所有Html" onclick="test15();" />
-			<pre>
-				代码:
-				$('.test15').htmlAll('&lt;a href="http://blog.csdn.net/leytton" target="_blank">&lt;img src="img/sa.jpg" />&lt;/a>');
-				var	str='';
-				str_list=$('.test15').htmlAll();
-				for(var i=0;i&lt;str_list.length;i++){
-					str+=(i+':'+str_list[i]+'\n');
-				}
-				alert('length:'+str_list.length+'\n'+str);
-			</pre>
-		</div><hr/>
-		eg16:多选择器默认隐藏/显示第1个元素<br/>
-		<div>
-			<span class="test16">test16,SimJq1~</span><br/>
-			<span class="test16">test16,SimJq2~</span><br/>
-			<span class="test16">test16,SimJq3~</span>
-			<input type="button" value="隐藏/显示" onclick="test16();" />
-			<pre>
-				代码:
-				if('0'==$('.test16').attr('show')){
-					$('.test16').show();
-					$('.test16').attr('show','1');
-				}else{
-					$('.test16').hide();
-					$('.test16').attr('show','0');
-				}
-			</pre>
-		</div><hr/>
-		eg17:多选择器隐藏/显示第i个元素<br/>
-		<div>
-			<span class="test17">test17,SimJq1~</span><br/>
-			<span class="test17">test17,SimJq2~</span><br/>
-			<span class="test17">test17,SimJq3~</span>
-			<input type="button" value="隐藏/显示" onclick="test17();" />
-			<pre>
-				代码:
-				if('0'==$('.test17').attr('show',null,1)){
-					$('.test17').show(1);
-					$('.test17').attr('show','1',1);
-				}else{
-					$('.test17').hide(1);
-					$('.test17').attr('show','0',1);
-				}
-			</pre>
-		</div><hr/>
-		eg18:多选择器隐藏/显示所有元素<br/>
-		<div id="test18">
-			<span class="test18">test18,SimJq1~</span><br/>
-			<span class="test18">test18,SimJq2~</span><br/>
-			<span class="test18">test18,SimJq3~</span>
-			<input type="button" value="隐藏/显示" onclick="test18();" />
-			<pre>
-				代码:
-				if('0'==$('#test18').attr('show')){
-					$('.test18').showAll();
-					$('#test18').attr('show','1');
-				}else{
-					$('.test18').hideAll();
-					$('#test18').attr('show','0');
-				}
-			</pre>
-		</div><hr/>
-		eg19:单选择器获取元素对象<br/>
-		<div>
-			<span id="test19">test19,SimJq~</span>
-			<input type="button" value="获取元素对象" onclick="test19();" />
-			<pre>
-				代码:
-				alert('元素对象:'+$('#test19')[0]+'\n文本:'+$('#test19')[0].innerText);
-			</pre>
-		</div><hr/>
-		eg20:多选择器获取第1个元素对象<br/>
-		<div>
-			<span class="test20">test20,SimJq1~</span><br/>
-			<span class="test20">test20,SimJq2~</span><br/>
-			<span class="test20">test20,SimJq3~</span>
-			<input type="button" value="获取元素对象" onclick="test20();" />
-			<pre>
-				代码:
-				alert('元素对象:'+$('.test20')[0]+'\n文本:'+$('.test20')[0].innerText);
-			</pre>
-		</div><hr/>
-		eg21:多选择器获取第i个元素对象<br/>
-		<div>
-			<span class="test21">test21,SimJq1~</span><br/>
-			<span class="test21">test21,SimJq2~</span><br/>
-			<span class="test21">test21,SimJq3~</span>
-			<input type="button" value="获取元素对象" onclick="test21();" />
-			<pre>
-				代码:
-				alert('元素对象:'+$('.test21')[1]+'\n文本:'+$('.test21')[1].innerText);
-			</pre>
-		</div><hr/>
-		eg22:多选择器获取所有元素对象<br/>
-		<div>
-			<span class="test22">test22,SimJq1~</span><br/>
-			<span class="test22">test22,SimJq2~</span><br/>
-			<span class="test22">test22,SimJq3~</span>
-			<input type="button" value="获取所有元素对象" onclick="test22();" />
-			<pre>
-				代码:
-				var	str='';
-				for(var i=0;i&lt;$('.test22').length;i++){
-					str+=(i+':'+$('.test22')[i].innerText+'\n');
-				}
-				alert('元素对象数组:'+$('.test22')+'\n'+str);
-			</pre>
-		</div><hr/>
-		eg23:多选择器默认修改/获取第1个输入框的值<br/>
-		<div>
-			<input class="test23" value="test23,SimJq1~"/><br/>
-			<input class="test23" value="test23,SimJq2~"/><br/>
-			<input class="test23" value="test23,SimJq3~"/>
-			<input type="button" value="修改/获取输入值" onclick="test23();" />
-			<pre>
-				代码:
-				$('.test23').val('Hi,SimJQ~');
-				alert($('.test23').val());
-			</pre>
-		</div><hr/>
-		eg24:多选择器修改/获取第i个输入框的值<br/>
-		<div>
-			<input class="test24" value="test24,SimJq1~"/><br/>
-			<input class="test24" value="test24,SimJq2~"/><br/>
-			<input class="test24" value="test24,SimJq3~"/>
-			<input type="button" value="修改/获取输入值" onclick="test24();" />
-			<pre>
-				代码:
-				$('.test24').val('Hi,SimJQ~',1);
-				alert($('.test24').val(null,1));
-			</pre>
-		</div><hr/>
-		eg25:多选择器修改/获取所有输入框的值<br/>
-		<div>
-			<input class="test25" value="test25,SimJq1~"/><br/>
-			<input class="test25" value="test25,SimJq2~"/><br/>
-			<input class="test25" value="test25,SimJq3~"/>
-			<input type="button" value="修改/获取所有输入值" onclick="test25();" />
-			<pre>
-				代码:
-				$('.test25').valAll('Hi,SimJQ~');
-				var	str='';
-				str_list=$('.test25').valAll();
-				for(var i=0;i&lt;str_list.length;i++){
-					str+=(i+':'+str_list[i]+'\n');
-				}
-				alert('length:'+str_list.length+'\n'+str);
-			</pre>
-		</div><hr/>
-		eg26:单选择器实现onclick<br/>
-		<div>
-			<span id="test26">test26,SimJq~(点击)</span>
-			<pre>
-				代码:
-				$('#test26').onclick(function() {
-					alert(this.innerText);
-				});
-			</pre>
-		</div><hr/>
-		eg27:多选择器默认实现第1个元素的onclick点击事件<br/>
-		<div>
-			<span class="test27">test27,SimJq1~(点击)</span><br/>
-			<span class="test27">test27,SimJq2~</span><br/>
-			<span class="test27">test27,SimJq3~</span>
-			<pre>
-				代码:
-				$('.test27').onclick(function() {
-					alert(this.innerText);
-				});
-			</pre>
-		</div><hr/>
-		eg28:多选择器默认实现第i个元素的onclick点击事件<br/>
-		<div>
-			<span class="test28">test28,SimJq1~</span><br/>
-			<span class="test28">test28,SimJq2~(点击)</span><br/>
-			<span class="test28">test28,SimJq3~</span>
-			<pre>
-				代码:
-				$('.test28').onclick(function() {
-					alert(this.innerText);
-				},1);
-			</pre>
-		</div><hr/>
-		eg29:多选择器实现所有元素的onclick点击事件<br/>
-		<div>
-			<span class="test29">test29,SimJq1~(点击)</span><br/>
-			<span class="test29">test29,SimJq2~(点击)</span><br/>
-			<span class="test29">test29,SimJq3~(点击)</span>
-			<pre>
-				代码:
-				$('.test29').onclickAll(function() {
-					alert(this.innerText);
-				});
-			</pre>
-		</div><hr/>
-		eg30:each函数<br/>
-		<div>
-			<span class="test30">test30,SimJq1~</span><br/>
-			<span class="test30">test30,SimJq2~</span><br/>
-			<span class="test30">test30,SimJq3~</span>
-			<input type="button" value="each函数依次获取元素文本" onclick="test30();" />
-			<pre>
-				代码:
-				var	str='';
-				var	i=0;
-				$('.test30').each(function(){
-					str+=(i+':'+this.innerText+'\n');
-					i++;
-				});
-				alert('length:'+i+'\n'+str);
-			</pre>
-		</div><hr/>
-		eg31:单选择器删除元素<br/>
-		<div>
-			<span id="test31">test31,SimJq~</span>
-			<input type="button" value="删除元素" onclick="test31();" />
-			<pre>
-				代码:
-				$('#test31').remove();
-			</pre>
-		</div><hr/>
-		eg32:多选择器默认删除第1个元素<br/>
-		<div>
-			<span class="test32">test32,SimJq1~</span><br/>
-			<span class="test32">test32,SimJq2~</span><br/>
-			<span class="test32">test32,SimJq3~</span>
-			<input type="button" value="删除元素" onclick="test32();" />
-			<pre>
-				代码:
-				$('.test32').remove();
-			</pre>
-		</div><hr/>
-		eg33:多选择器删除第i个元素<br/>
-		<div>
-			<span class="test33">test33,SimJq1~</span><br/>
-			<span class="test33">test33,SimJq2~</span><br/>
-			<span class="test33">test33,SimJq3~</span>
-			<input type="button" value="删除元素" onclick="test33();" />
-			<pre>
-				代码:
-				$('.test33').remove(1);
-			</pre>
-		</div><hr/>
-		eg34:多选择器删除所有元素<br/>
-		<div>
-			<span class="test34">test34,SimJq1~</span><br/>
-			<span class="test34">test34,SimJq2~</span><br/>
-			<span class="test34">test34,SimJq3~</span>
-			<input type="button" value="删除元素" onclick="test34();" />
-			<pre>
-				代码:
-				$('.test34').removeAll();
-			</pre>
-		</div><hr/>
-		eg35:单选择器在元素末尾插入内容(支持html)<br/>
-		<div>
-			<span id="test35">test35,SimJq~</span>
-			<input type="button" value="插入内容" onclick="test35();" />
-			<pre>
-				代码:
-				$('#test35').append('hello');
-			</pre>
-		</div><hr/>
-		eg36:多选择器默认在第1个元素末尾插入html内容(支持html)<br/>
-		<div>
-			<span class="test36">test36,SimJq1~</span><br/>
-			<span class="test36">test36,SimJq2~</span><br/>
-			<span class="test36">test36,SimJq3~</span>
-			<input type="button" value="插入内容" onclick="test36();" />
-			<pre>
-				代码:
-				$('.test36').append('&lt;a href="http://www.llqqww.com" target="_blank">www.llqqww.com&lt;/a>');
-			</pre>
-		</div><hr/>
-		eg37:多选择器在第i个元素末尾插入内容(支持html)<br/>
-		<div>
-			<span class="test37">test37,SimJq1~</span><br/>
-			<span class="test37">test37,SimJq2~</span><br/>
-			<span class="test37">test37,SimJq3~</span>
-			<input type="button" value="插入内容" onclick="test37();" />
-			<pre>
-				代码:
-				$('.test37').append('hello',1);
-			</pre>
-		</div><hr/>
-		eg38:多选择器在所有元素末尾插入内容(支持html)<br/>
-		<div>
-			<span class="test38">test38,SimJq1~</span><br/>
-			<span class="test38">test38,SimJq2~</span><br/>
-			<span class="test38">test38,SimJq3~</span>
-			<input type="button" value="插入内容" onclick="test38();" />
-			<pre>
-				代码:
-				$('.test38').appendAll('&lt;a href="http://www.llqqww.com" target="_blank">www.llqqww.com&lt;/a>');
-			</pre>
-		</div><hr/>
-		eg39:单选择器在元素开头插入内容(支持html)<br/>
-		<div>
-			<span id="test39">test39,SimJq~</span>
-			<input type="button" value="插入内容" onclick="test39();" />
-			<pre>
-				代码:
-				$('#test39').prepend('hello');
-			</pre>
-		</div><hr/>
-		eg40:多选择器默认在第1个元素开头插入html内容(支持html)<br/>
-		<div>
-			<span class="test40">test40,SimJq1~</span><br/>
-			<span class="test40">test40,SimJq2~</span><br/>
-			<span class="test40">test40,SimJq3~</span>
-			<input type="button" value="插入内容" onclick="test40();" />
-			<pre>
-				代码:
-				$('.test40').prepend('&lt;a href="http://www.llqqww.com" target="_blank">www.llqqww.com&lt;/a>');
-			</pre>
-		</div><hr/>
-		eg41:多选择器在第i个元素开头插入内容(支持html)<br/>
-		<div>
-			<span class="test41">test41,SimJq1~</span><br/>
-			<span class="test41">test41,SimJq2~</span><br/>
-			<span class="test41">test41,SimJq3~</span>
-			<input type="button" value="插入内容" onclick="test41();" />
-			<pre>
-				代码:
-				$('.test41').prepend('hello',1);
-			</pre>
-		</div><hr/>
-		eg42:多选择器在所有元素开头插入内容(支持html)<br/>
-		<div>
-			<span class="test42">test42,SimJq1~</span><br/>
-			<span class="test42">test42,SimJq2~</span><br/>
-			<span class="test42">test42,SimJq3~</span>
-			<input type="button" value="插入内容" onclick="test42();" />
-			<pre>
-				代码:
-				$('.test42').prependAll('&lt;a href="http://www.llqqww.com" target="_blank">www.llqqww.com&lt;/a>');
-			</pre>
-		</div><hr/>
-		eg43:单选择器在添加class<br/>
-		<div>
-			<span id="test43">test43,SimJq~</span>
-			<input type="button" value="添加class" onclick="test43();" />
-			<pre>
-				代码:
-				$('#test43').addClass('red');
-			</pre>
-		</div><hr/>
-		eg44:多选择器默认在第1个元素添加class<br/>
-		<div>
-			<span class="test44">test44,SimJq1~</span><br/>
-			<span class="test44">test44,SimJq2~</span><br/>
-			<span class="test44">test44,SimJq3~</span>
-			<input type="button" value="添加class" onclick="test44();" />
-			<pre>
-				代码:
-				$('.test44').addClass('red');
-			</pre>
-		</div><hr/>
-		eg45:多选择器在第i个元素添加class<br/>
-		<div>
-			<span class="test45">test45,SimJq1~</span><br/>
-			<span class="test45">test45,SimJq2~</span><br/>
-			<span class="test45">test45,SimJq3~</span>
-			<input type="button" value="添加class" onclick="test45();" />
-			<pre>
-				代码:
-				$('.test45').addClass('red',1);
-			</pre>
-		</div><hr/>
-		eg46:多选择器在所有元素添加class<br/>
-		<div>
-			<span class="test46">test46,SimJq1~</span><br/>
-			<span class="test46">test46,SimJq2~</span><br/>
-			<span class="test46">test46,SimJq3~</span>
-			<input type="button" value="添加class" onclick="test46();" />
-			<pre>
-				代码:
-				$('.test46').addClassAll('red');
-			</pre>
-		</div><hr/>
-		eg47:单选择器在删除class<br/>
-		<div>
-			<span id="test47" class="red">test47,SimJq~</span>
-			<input type="button" value="删除class" onclick="test47();" />
-			<pre>
-				代码:
-				$('#test47').removeClass('red');
-			</pre>
-		</div><hr/>
-		eg48:多选择器默认在第1个元素删除class<br/>
-		<div>
-			<span class="red test48 blue">test48,SimJq1~</span><br/>
-			<span class="red test48 blue">test48,SimJq2~</span><br/>
-			<span class="red test48 blue">test48,SimJq3~</span>
-			<input type="button" value="删除class" onclick="test48();" />
-			<pre>
-				代码:
-				$('.test48').removeClass('red');
-			</pre>
-		</div><hr/>
-		eg49:多选择器在第i个元素删除class<br/>
-		<div>
-			<span class="test49 blue red">test49,SimJq1~</span><br/>
-			<span class="test49 blue red">test49,SimJq2~</span><br/>
-			<span class="test49 blue red">test49,SimJq3~</span>
-			<input type="button" value="删除class" onclick="test49();" />
-			<pre>
-				代码:
-				$('.test49').removeClass('red',1);
-			</pre>
-		</div><hr/>
-		eg50:多选择器在所有元素删除class<br/>
-		<div>
-			<span class="test50 red blue">test50,SimJq1~</span><br/>
-			<span class="test50 red blue">test50,SimJq2~</span><br/>
-			<span class="test50 red blue">test50,SimJq3~</span>
-			<input type="button" value="删除class" onclick="test50();" />
-			<pre>
-				代码:
-				$('.test50').removeClassAll('red');
-			</pre>
-		</div><hr/>
-		eg98:ajax get网络请求<br/>
-		<div>
-			<input type="button" value="get网络请求" onclick="test98();" />
-			<pre>
-				代码:
-				var url='http://www.llqqww.com/open/json/get.php';
-				$.ajax({
-				   	method: 'GET',
-				   	dataType:'json',
-				   	url:url,
-				    data:{
-				    	name:'Leytton'
-				    },
-				    success: function (data,xhr) {
-				       alert(JSON.stringify(data));
-				    },
-				    error:function(data,xhr){
-				        alert(data);
-				    }
-				});
-			</pre>
-		</div><hr/>
-		eg99:ajax post网络请求<br/>
-		<div>
-			<input type="button" value="post网络请求" onclick="test99();" />
-			<pre>
-				代码:
-				var url='http://www.llqqww.com/open/json/post.php';
-				$.ajax({
-				   	method: 'POST',
-				   	dataType:'json',
-				   	url:url,
-				    data:{
-				    	name:'Leytton'
-				    },
-				    success: function (data,xhr) {
-				       alert(JSON.stringify(data));
-				    },
-				    error:function(data,xhr){
-				       alert(data);
-				    }
-				});
-			</pre>
-		</div><hr/>
+		<div class="jumbotron">
+			<div class="container">
+				<h1>SimJQ</h1>
+				<h2 style="text-indent:5em;">——4K不到的嵌入式js</h2>
+				<p style="text-indent:2em;">
+					SimJQ全称Simple JQuery，支持类似JQuery语法的常用DOM操作和网络请求功能。它不到4K大小，适合应用于存储空间极其有限的场景。
+				</p>
+				<p>
+					<a class="btn btn-primary btn-lg" href="simJQ-1.3.js" download="simJQ-1.3.js" role="button">下载 simJQ-1.3.js</a>
+				</p>
+				<blockquote style="background: wheat;">
+				  <p>或直接引用 &lt;script type="text/javascript" src="//leytton.gitee.io/simjq/simJQ-1.3.min.js">&lt;/script></p>
+				</blockquote>
+			</div>
+		</div>
+		<div class="container">
+			<div class="title">eg1:文本修改/获取</div>
+			<div>
+				<div id="test1">test1,SimJq~</div>
+				<input type="button" class="btn btn-success" value="修改/获取" onclick="test1();" />
+				<pre><code>
+$('#test1').text('Hello,I\'m Leytton~');
+alert($('#test1').text());
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg2:属性修改/获取
+			</div>
+			<div>
+				<div id="test2">test2,SimJq~</div>
+				<input type="button" class="btn btn-success" value="修改/获取" onclick="test2();" />
+				<pre><code>
+$('#test2').attr('my_name', '不亦');
+alert($('#test2').attr('my_name'));
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg3:Html修改/获取
+			</div>
+			<div>
+				<div id="test3">test3,SimJq~</div>
+				<input type="button" class="btn btn-success" value="Html修改/获取" onclick="test3();" />
+				<pre><code>
+$('#test3').html('&lt;a href="http://blog.csdn.net/leytton" target="_blank">&lt;img src="img/sa.jpg" />&lt;/a>');
+alert($('#test3').html());
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg4:隐藏/显示
+			</div>
+			<div>
+				<div id="test4" show="1">test4,SimJq~</div>
+				<input type="button" class="btn btn-success" value="隐藏/显示" onclick="test4();" />
+				<pre><code>
+if('1' == $('#test4').attr('show')) {
+	$('#test4').hide();
+	$('#test4').attr('show', '0');
+} else {
+	$('#test4').show();
+	$('#test4').attr('show', '1');
+}
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg5:获取输入值
+			</div>
+			<div>
+				<input id="test5" type="text" />
+				<input type="button" class="btn btn-success" value="获取输入值" onclick="test5();" />
+				<pre><code>
+alert($('#test5').val());
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg6:设置输入值
+			</div>
+			<div>
+				<input id="test6" type="text" />
+				<input type="button" class="btn btn-success" value="设置输入值" onclick="test6();" />
+				<pre><code>
+$('#test6').val('Hello,SimJQ~');
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg7:多选择器默认修改/获取第1个文本
+			</div>
+			<div>
+				<div class="test7">test7,SimJq1~</div>
+				<div class="test7">test7,SimJq2~</div>
+				<div class="test7">test7,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="修改/获取文本" onclick="test7();" />
+				<pre><code>
+$('.test7').text('Hi,SimJQ~');
+alert($('.test7').text());
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg8:多选择器修改/获取第i个文本
+			</div>
+			<div>
+				<div class="test8">test8,SimJq1~</div>
+				<div class="test8">test8,SimJq2~</div>
+				<div class="test8">test8,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="修改/获取文本" onclick="test8();" />
+				<pre><code>
+$('.test8').text('Hi,SimJQ~',1);
+alert($('.test8').text(null,1));
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg9:多选择器修改/获取所有文本
+			</div>
+			<div>
+				<div class="test9">test9,SimJq1~</div>
+				<div class="test9">test9,SimJq2~</div>
+				<div class="test9">test9,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="修改/获取所有文本" onclick="test9();" />
+				<pre><code>
+$('.test9').textAll('Hi,SimJQ~');
+var	str='';
+str_list=$('.test9').textAll();
+for(var i=0;i&lt;str_list.length;i++){
+	str+=(i+':'+str_list[i]+'\n');
+}
+alert('length:'+str_list.length+'\n'+str);
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg10:多选择器默认修改/获取第1个属性
+			</div>
+			<div>
+				<div class="test10">test10,SimJq1~</div>
+				<div class="test10">test10,SimJq2~</div>
+				<div class="test10">test10,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="修改/获取属性" onclick="test10();" />
+				<pre><code>
+$('.test10').attr('my_name', '不亦');
+alert($('.test10').attr('my_name'));
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg11:多选择器修改/获取第i个属性
+			</div>
+			<div>
+				<div class="test11">test11,SimJq1~</div>
+				<div class="test11">test11,SimJq2~</div>
+				<div class="test11">test11,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="修改/获取属性" onclick="test11();" />
+				<pre><code>
+$('.test11').attr('my_name', '不亦',1);
+alert($('.test11').attr('my_name',null,1));
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg12:多选择器修改/获取所有属性
+			</div>
+			<div>
+				<div class="test12">test12,SimJq1~</div>
+				<div class="test12">test12,SimJq2~</div>
+				<div class="test12">test12,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="修改/获取所有属性" onclick="test12();" />
+				<pre><code>
+$('.test12').attrAll('my_name', '不亦');
+var	str='';
+str_list=$('.test12').attrAll('my_name');
+for(var i=0;i&lt;str_list.length;i++){
+	str+=(i+':'+str_list[i]+'\n');
+}
+alert('length:'+str_list.length+'\n'+str);
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg13:多选择器默认修改/获取第1个Html
+			</div>
+			<div>
+				<div class="test13">test13,SimJq1~</div>
+				<div class="test13">test13,SimJq2~</div>
+				<div class="test13">test13,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="修改/获取Html" onclick="test13();" />
+				<pre><code>
+$('.test13').html('&lt;a href="http://blog.csdn.net/leytton" target="_blank">&lt;img src="img/sa.jpg" />&lt;/a>');
+alert($('.test13').html());
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg14:多选择器修改/获取第i个Html
+			</div>
+			<div>
+				<div class="test14">test13,SimJq1~</div>
+				<div class="test14">test8,SimJq2~</div>
+				<div class="test14">test8,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="修改/获取Html" onclick="test14();" />
+				<pre><code>
+$('.test14').html('&lt;a href="http://blog.csdn.net/leytton" target="_blank">&lt;img src="img/sa.jpg" />&lt;/a>',1);
+alert($('.test14').html());
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg15:多选择器修改/获取所有Html
+			</div>
+			<div>
+				<div class="test15">test15,SimJq1~</div>
+				<div class="test15">test15,SimJq2~</div>
+				<div class="test15">test15,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="修改/获取所有Html" onclick="test15();" />
+				<pre><code>
+$('.test15').htmlAll('&lt;a href="http://blog.csdn.net/leytton" target="_blank">&lt;img src="img/sa.jpg" />&lt;/a>');
+var	str='';
+str_list=$('.test15').htmlAll();
+for(var i=0;i&lt;str_list.length;i++){
+	str+=(i+':'+str_list[i]+'\n');
+}
+alert('length:'+str_list.length+'\n'+str);
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg16:多选择器默认隐藏/显示第1个元素
+			</div>
+			<div>
+				<div class="test16">test16,SimJq1~</div>
+				<div class="test16">test16,SimJq2~</div>
+				<div class="test16">test16,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="隐藏/显示" onclick="test16();" />
+				<pre><code>
+if('0'==$('.test16').attr('show')){
+	$('.test16').show();
+	$('.test16').attr('show','1');
+}else{
+	$('.test16').hide();
+	$('.test16').attr('show','0');
+}
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg17:多选择器隐藏/显示第i个元素
+			</div>
+			<div>
+				<div class="test17">test17,SimJq1~</div>
+				<div class="test17">test17,SimJq2~</div>
+				<div class="test17">test17,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="隐藏/显示" onclick="test17();" />
+				<pre><code>
+if('0'==$('.test17').attr('show',null,1)){
+	$('.test17').show(1);
+	$('.test17').attr('show','1',1);
+}else{
+	$('.test17').hide(1);
+	$('.test17').attr('show','0',1);
+}
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg18:多选择器隐藏/显示所有元素</div>
+
+			<div id="test18">
+				<div class="test18">test18,SimJq1~</div>
+				<div class="test18">test18,SimJq2~</div>
+				<div class="test18">test18,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="隐藏/显示" onclick="test18();" />
+				<pre><code>
+if('0'==$('#test18').attr('show')){
+	$('.test18').showAll();
+	$('#test18').attr('show','1');
+}else{
+	$('.test18').hideAll();
+	$('#test18').attr('show','0');
+}
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg19:单选择器获取元素对象
+			</div>
+			<div>
+				<div id="test19">test19,SimJq~</div>
+				<input type="button" class="btn btn-success" value="获取元素对象" onclick="test19();" />
+				<pre><code>
+alert('元素对象:'+$('#test19')[0]+'\n文本:'+$('#test19')[0].innerText);
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg20:多选择器获取第1个元素对象
+			</div>
+			<div>
+				<div class="test20">test20,SimJq1~</div>
+				<div class="test20">test20,SimJq2~</div>
+				<div class="test20">test20,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="获取元素对象" onclick="test20();" />
+				<pre><code>
+alert('元素对象:'+$('.test20')[0]+'\n文本:'+$('.test20')[0].innerText);
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg21:多选择器获取第i个元素对象
+			</div>
+			<div>
+				<div class="test21">test21,SimJq1~</div>
+				<div class="test21">test21,SimJq2~</div>
+				<div class="test21">test21,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="获取元素对象" onclick="test21();" />
+				<pre><code>
+alert('元素对象:'+$('.test21')[1]+'\n文本:'+$('.test21')[1].innerText);
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg22:多选择器获取所有元素对象
+			</div>
+			<div>
+				<div class="test22">test22,SimJq1~</div>
+				<div class="test22">test22,SimJq2~</div>
+				<div class="test22">test22,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="获取所有元素对象" onclick="test22();" />
+				<pre><code>
+var	str='';
+for(var i=0;i&lt;$('.test22').length;i++){
+	str+=(i+':'+$('.test22')[i].innerText+'\n');
+}
+alert('元素对象数组:'+$('.test22')+'\n'+str);
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg23:多选择器默认修改/获取第1个输入框的值
+			</div>
+			<div>
+				<input class="test23" value="test23,SimJq1~" />
+				<input class="test23" value="test23,SimJq2~" />
+				<input class="test23" value="test23,SimJq3~" />
+				<input type="button" class="btn btn-success" value="修改/获取输入值" onclick="test23();" />
+				<pre><code>
+$('.test23').val('Hi,SimJQ~');
+alert($('.test23').val());
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg24:多选择器修改/获取第i个输入框的值
+			</div>
+			<div>
+				<input class="test24" value="test24,SimJq1~" />
+				<input class="test24" value="test24,SimJq2~" />
+				<input class="test24" value="test24,SimJq3~" />
+				<input type="button" class="btn btn-success" value="修改/获取输入值" onclick="test24();" />
+				<pre><code>
+$('.test24').val('Hi,SimJQ~',1);
+alert($('.test24').val(null,1));
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg25:多选择器修改/获取所有输入框的值
+			</div>
+			<div>
+				<input class="test25" value="test25,SimJq1~" />
+				<input class="test25" value="test25,SimJq2~" />
+				<input class="test25" value="test25,SimJq3~" />
+				<input type="button" class="btn btn-success" value="修改/获取所有输入值" onclick="test25();" />
+				<pre><code>
+$('.test25').valAll('Hi,SimJQ~');
+var	str='';
+str_list=$('.test25').valAll();
+for(var i=0;i&lt;str_list.length;i++){
+	str+=(i+':'+str_list[i]+'\n');
+}
+alert('length:'+str_list.length+'\n'+str);
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg26:单选择器实现onclick
+			</div>
+			<div>
+				<div id="test26">test26,SimJq~(点击)</div>
+				<pre><code>
+$('#test26').onclick(function() {
+	alert(this.innerText);
+});
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg27:多选择器默认实现第1个元素的onclick点击事件
+			</div>
+			<div>
+				<div class="test27">test27,SimJq1~(点击)</div>
+				<div class="test27">test27,SimJq2~</div>
+				<div class="test27">test27,SimJq3~</div>
+				<pre><code>
+$('.test27').onclick(function() {
+	alert(this.innerText);
+});
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg28:多选择器默认实现第i个元素的onclick点击事件
+			</div>
+			<div>
+				<div class="test28">test28,SimJq1~</div>
+				<div class="test28">test28,SimJq2~(点击)</div>
+				<div class="test28">test28,SimJq3~</div>
+				<pre><code>
+$('.test28').onclick(function() {
+	alert(this.innerText);
+},1);
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg29:多选择器实现所有元素的onclick点击事件
+			</div>
+			<div>
+				<div class="test29">test29,SimJq1~(点击)</div>
+				<div class="test29">test29,SimJq2~(点击)</div>
+				<div class="test29">test29,SimJq3~(点击)</div>
+				<pre><code>
+$('.test29').onclickAll(function() {
+	alert(this.innerText);
+});
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg30:each函数
+			</div>
+			<div>
+				<div class="test30">test30,SimJq1~</div>
+				<div class="test30">test30,SimJq2~</div>
+				<div class="test30">test30,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="each函数依次获取元素文本" onclick="test30();" />
+				<pre><code>
+var	str='';
+var	i=0;
+$('.test30').each(function(){
+	str+=(i+':'+this.innerText+'\n');
+	i++;
+});
+alert('length:'+i+'\n'+str);
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg31:单选择器删除元素
+			</div>
+			<div>
+				<div id="test31">test31,SimJq~</div>
+				<input type="button" class="btn btn-success" value="删除元素" onclick="test31();" />
+				<pre><code>
+$('#test31').remove();
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg32:多选择器默认删除第1个元素
+			</div>
+			<div>
+				<div class="test32">test32,SimJq1~</div>
+				<div class="test32">test32,SimJq2~</div>
+				<div class="test32">test32,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="删除元素" onclick="test32();" />
+				<pre><code>
+$('.test32').remove();
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg33:多选择器删除第i个元素
+			</div>
+			<div>
+				<div class="test33">test33,SimJq1~</div>
+				<div class="test33">test33,SimJq2~</div>
+				<div class="test33">test33,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="删除元素" onclick="test33();" />
+				<pre><code>
+$('.test33').remove(1);
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg34:多选择器删除所有元素
+			</div>
+			<div>
+				<div class="test34">test34,SimJq1~</div>
+				<div class="test34">test34,SimJq2~</div>
+				<div class="test34">test34,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="删除元素" onclick="test34();" />
+				<pre><code>
+$('.test34').removeAll();
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg35:单选择器在元素末尾插入内容(支持html)
+			</div>
+			<div>
+				<div id="test35">test35,SimJq~</div>
+				<input type="button" class="btn btn-success" value="插入内容" onclick="test35();" />
+				<pre><code>
+$('#test35').append('hello');
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg36:多选择器默认在第1个元素末尾插入html内容(支持html)
+			</div>
+			<div>
+				<div class="test36">test36,SimJq1~</div>
+				<div class="test36">test36,SimJq2~</div>
+				<div class="test36">test36,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="插入内容" onclick="test36();" />
+				<pre><code>
+$('.test36').append('&lt;a href="http://www.llqqww.com" target="_blank">www.llqqww.com&lt;/a>');
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg37:多选择器在第i个元素末尾插入内容(支持html)
+			</div>
+			<div>
+				<div class="test37">test37,SimJq1~</div>
+				<div class="test37">test37,SimJq2~</div>
+				<div class="test37">test37,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="插入内容" onclick="test37();" />
+				<pre><code>
+$('.test37').append('hello',1);
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg38:多选择器在所有元素末尾插入内容(支持html)
+			</div>
+			<div>
+				<div class="test38">test38,SimJq1~</div>
+				<div class="test38">test38,SimJq2~</div>
+				<div class="test38">test38,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="插入内容" onclick="test38();" />
+				<pre><code>
+$('.test38').appendAll('&lt;a href="http://www.llqqww.com" target="_blank">www.llqqww.com&lt;/a>');
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg39:单选择器在元素开头插入内容(支持html)
+			</div>
+			<div>
+				<div id="test39">test39,SimJq~</div>
+				<input type="button" class="btn btn-success" value="插入内容" onclick="test39();" />
+				<pre><code>
+$('#test39').prepend('hello');
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg40:多选择器默认在第1个元素开头插入html内容(支持html)
+			</div>
+			<div>
+				<div class="test40">test40,SimJq1~</div>
+				<div class="test40">test40,SimJq2~</div>
+				<div class="test40">test40,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="插入内容" onclick="test40();" />
+				<pre><code>
+$('.test40').prepend('&lt;a href="http://www.llqqww.com" target="_blank">www.llqqww.com&lt;/a>');
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg41:多选择器在第i个元素开头插入内容(支持html)
+			</div>
+			<div>
+				<div class="test41">test41,SimJq1~</div>
+				<div class="test41">test41,SimJq2~</div>
+				<div class="test41">test41,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="插入内容" onclick="test41();" />
+				<pre><code>
+$('.test41').prepend('hello',1);
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg42:多选择器在所有元素开头插入内容(支持html)
+			</div>
+			<div>
+				<div class="test42">test42,SimJq1~</div>
+				<div class="test42">test42,SimJq2~</div>
+				<div class="test42">test42,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="插入内容" onclick="test42();" />
+				<pre><code>
+$('.test42').prependAll('&lt;a href="http://www.llqqww.com" target="_blank">www.llqqww.com&lt;/a>');
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg43:单选择器在添加class
+			</div>
+			<div>
+				<div id="test43">test43,SimJq~</div>
+				<input type="button" class="btn btn-success" value="添加class" onclick="test43();" />
+				<pre><code>
+$('#test43').addClass('red');
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg44:多选择器默认在第1个元素添加class
+			</div>
+			<div>
+				<div class="test44">test44,SimJq1~</div>
+				<div class="test44">test44,SimJq2~</div>
+				<div class="test44">test44,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="添加class" onclick="test44();" />
+				<pre><code>
+$('.test44').addClass('red');
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg45:多选择器在第i个元素添加class
+			</div>
+			<div>
+				<div class="test45">test45,SimJq1~</div>
+				<div class="test45">test45,SimJq2~</div>
+				<div class="test45">test45,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="添加class" onclick="test45();" />
+				<pre><code>
+$('.test45').addClass('red',1);
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg46:多选择器在所有元素添加class
+			</div>
+			<div>
+				<div class="test46">test46,SimJq1~</div>
+				<div class="test46">test46,SimJq2~</div>
+				<div class="test46">test46,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="添加class" onclick="test46();" />
+				<pre><code>
+$('.test46').addClassAll('red');
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg47:单选择器在删除class
+			</div>
+			<div>
+				<div id="test47" class="red">test47,SimJq~</div>
+				<input type="button" class="btn btn-success" value="删除class" onclick="test47();" />
+				<pre><code>
+$('#test47').removeClass('red');
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg48:多选择器默认在第1个元素删除class
+			</div>
+			<div>
+				<div class="red test48 blue">test48,SimJq1~</div>
+				<div class="red test48 blue">test48,SimJq2~</div>
+				<div class="red test48 blue">test48,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="删除class" onclick="test48();" />
+				<pre><code>
+$('.test48').removeClass('red');
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg49:多选择器在第i个元素删除class
+			</div>
+			<div>
+				<div class="test49 blue red">test49,SimJq1~</div>
+				<div class="test49 blue red">test49,SimJq2~</div>
+				<div class="test49 blue red">test49,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="删除class" onclick="test49();" />
+				<pre><code>
+$('.test49').removeClass('red',1);
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg50:多选择器在所有元素删除class
+			</div>
+			<div>
+				<div class="test50 red blue">test50,SimJq1~</div>
+				<div class="test50 red blue">test50,SimJq2~</div>
+				<div class="test50 red blue">test50,SimJq3~</div>
+				<input type="button" class="btn btn-success" value="删除class" onclick="test50();" />
+				<pre><code>
+$('.test50').removeClassAll('red');
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg98:ajax get网络请求</div>
+			<div>
+				<input type="button" class="btn btn-success" value="get网络请求" onclick="test98();" />
+				<pre><code>
+var url='http://www.llqqww.com/open/json/get.php';
+$.ajax({
+   	method: 'GET',
+   	dataType:'json',
+   	url:url,
+    data:{
+    	name:'Leytton'
+    },
+    success: function (data,xhr) {
+       alert(JSON.stringify(data));
+    },
+    error:function(data,xhr){
+        alert(data);
+    }
+});
+				</code></pre>
+			</div>
+			<hr/>
+			<div class="title">eg99:ajax post网络请求</div>
+			<div>
+				<input type="button" class="btn btn-success" value="post网络请求" onclick="test99();" />
+				<pre><code>
+var url='http://www.llqqww.com/open/json/post.php';
+$.ajax({
+   	method: 'POST',
+   	dataType:'json',
+   	url:url,
+    data:{
+    	name:'Leytton'
+    },
+    success: function (data,xhr) {
+       alert(JSON.stringify(data));
+    },
+    error:function(data,xhr){
+       alert(data);
+    }
+});
+				</code></pre>
+			</div>
+			<hr/>
+		</div>
 	</body>
+
 </html>
 <script>
 	test26();
@@ -658,7 +728,19 @@
 	test29();
 </script>
 <style>
-	.red{
+	.red {
 		color: red;
+	}
+	
+	.title {
+		font-weight: bold;
+	}
+	
+	.btn-success {
+		margin: 5px 0;
+	}
+	
+	pre {
+		margin: 10px 0;
 	}
 </style>
