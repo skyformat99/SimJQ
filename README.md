@@ -20,9 +20,9 @@ SimJQ全称Simple JQuery，支持类似JQuery语法的常用DOM操作和网络�
 
  **2、用在哪里？** 
 
-2.1对文件大小有严格要求的应用场景
-2.2Android
-打包本地HTML资源尽量减小包大小
-2.3嵌入式网络通信
-STM32、NodeMCU、Arduino等HTTP请求返回Js文件
-2.4 等待你的发挥
+- 2.1对文件大小有严格要求的应用场景
+- 2.2Android
+    打包本地HTML资源尽量减小包大小
+- 2.3嵌入式网络通信
+    STM32、NodeMCU、Arduino等HTTP请求返回Js文件
+- 2.4 等待你的发挥
