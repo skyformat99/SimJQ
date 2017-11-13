@@ -191,7 +191,7 @@ $s.hasClass = function(obj,str) {
 };
 
 $s.fn.about = function() {
-	return "SimJQ-V3.1 By Leytton";
+	return "SimJQ-V1.3 By Leytton";
 };
 
 $s.ajax = function(options) {
