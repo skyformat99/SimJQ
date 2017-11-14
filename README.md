@@ -13,8 +13,10 @@ SimJQ全称Simple JQuery，支持类似JQuery语法的常用DOM操作和网络�
 > <script type="text/javascript" src="//leytton.gitee.io/simjq/simJQ-1.4.min.js"></script>
 
 支持函数链式调用，如：
->  $().tag('p').text("hello").attr('id','test').outHtml();
->  $().dom('<p>11111<span>&lt;b>hello&lt;/b></span></p>').attr('id','test').outHtml();
+```
+$().tag('p').text("hello").attr('id','test').outHtml();
+$().dom('<p>11111<span>&lt;b>hello&lt;/b></span></p>').attr('id','test').outHtml();
+```
 
 注: $(),s(),$s()都行，与Jquery冲突时在Jquery之前引入js文件，采用s()或$s()
 
