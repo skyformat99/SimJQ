@@ -217,9 +217,15 @@ $s.fn.each = function(cb_fun) {
 	}
 	return this;
 };
-$s.fn.dom = function(tag) {
+$s.fn.tag = function(tag) {
 	var dom = document.createElement(tag);
 	this[0]=dom;
+	return this;
+};
+$s.fn.dom = function(str) {
+	var dom = document.createElement('p');
+	dom.innerHTML=str;
+	this[0]=dom.childNodes[0];
 	return this;
 };
 $s.hasClass = function(obj,str) {
